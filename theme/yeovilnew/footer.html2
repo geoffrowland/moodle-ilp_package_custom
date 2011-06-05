@@ -1,0 +1,155 @@
+</div> <!-- end div content -->
+
+<div id="footer">
+<hr />
+
+<?php
+    echo '<p class="helplink">';
+    echo page_doc_link(get_string('moodledocslink'));
+    echo '</p>';
+?>
+
+<?php echo $loggedinas ?>
+<?php echo $homelink ?>
+
+
+<?php
+    if (has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM)) and !empty($performanceinfo)) { 
+        echo $performanceinfo;
+    }
+
+    if (debugging()) {
+?>
+        <div class="validators"><ul>
+          <li><a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=<?php echo urlencode(qualified_me()) ?>">Validate HTML</a></li>
+          <li><a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=<?php echo urlencode(qualified_me()) ?>">Section 508 Check</a></li>
+          <li><a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=<?php echo urlencode(qualified_me()) ?>">WCAG 1 (2,3) Check</a></li>
+        </ul></div>
+<?php } ?>
+
+
+</div>
+</div>
+</div>
+<?php
+$zlib_on = ini_get('zlib.output_compression');
+
+if (empty($zlib_on)) {
+?>
+<script type="text/javascript" src="<?php echo $CFG->wwwroot ?>/lib/editor/tinymce3/tiny_mce_gzip.js"></script>
+<script type="text/javascript">
+tinyMCE_GZ.init({
+	plugins : 'style,layer,table,save,advhr,advimage,advlink,emoticons,spellchecker,insertdatetime,preview,media,'+ 
+        'searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,moodleimage,moodlelink,dragmath,inlinepopups',
+	themes : 'advanced',
+	languages : 'en',
+	spellchecker_languages : "+English=en_GB,English with accents=en_GB-w_accents,English ise with accents=en_GB-ise-w_accents",
+	disk_cache : true,
+	debug : false
+});
+</script>
+<?php
+} else {
+?>
+<script type="text/javascript" src="<?php echo $CFG->wwwroot ?>/lib/editor/tinymce3/tiny_mce.js"></script>
+<?php
+}
+?>
+<script language="javascript" type="text/javascript">
+<?php
+if (!empty($COURSE->id) and has_capability('moodle/course:managefiles', get_context_instance(CONTEXT_COURSE, $COURSE->id))) {
+?>
+	tinyMCE.init({
+		relative_urls : false,
+        remove_script_host : true,
+        document_base_url : "<?php echo $CFG->wwwroot; ?>",
+		editor_selector : "form-textarea",
+		mode : "textareas",
+  		theme : "advanced",
+//		theme : "simple",
+				convert_newlines_to_brs : false,
+		plugins : "safari,spellchecker,style,layer,table,advhr,advimage,advlink,emoticons,inlinepopups,preview,media,searchreplace,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,moodleimage,moodlelink,dragmath",
+ 		theme_advanced_font_sizes: "1,2,3,4,5,6,7",
+              theme_advanced_layout_manager: "SimpleLayout",
+  		theme_advanced_buttons1_add : "fontselect,fontsizeselect,forecolor,backcolor,dragmath",
+		
+		theme_advanced_buttons2_add_before: "cut,copy,paste,pastetext,pasteword,separator,replace,separator,ltr,rtl,separator",
+		theme_advanced_buttons2_add: "fullscreen",
+		theme_advanced_buttons3_add_before : "tablecontrols,separator",
+		theme_advanced_buttons3_add : "moodleimage,emoticons,spellchecker,media,advhr",
+		spellchecker_languages : "+English=en_GB,English with accents=en_GB-w_accents,English ise with accents=en_GB-ise-w_accents",
+		theme_advanced_disable : "help,underline,image",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		moodleimage_course_id: <?php echo $COURSE->id; ?>,
+//    theme_advanced_fonts: "Trebuchet=Trebuchet MS,Verdana,Arial,Helvetica,sans-serif;Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;Georgia=georgia,times new roman,times,serif;Tahoma=tahoma,arial,helvetica,sans-serif;Times New Roman=times new roman,times,serif;Verdana=verdana,arial,helvetica,sans-serif;Impact=impact;Wingdings=wingdings;", 
+		theme_advanced_resize_horizontal : true,
+		theme_advanced_resizing : true,
+		file_browser_callback : "moodlefilemanager",
+		apply_source_formatting : true,
+            	
+	
+	});
+    function moodlefilemanager(field_name, url, type, win) {
+			
+  	          tinyMCE.activeEditor.windowManager.open({
+               file : "<?php echo $CFG->wwwroot ?>/lib/editor/tinymce3/plugins/moodlelink/link.php?id=<?php echo $COURSE->id; ?>",
+               width : 480,  
+               height : 380,
+               resizable : "yes",
+               inline : "yes",  
+               close_previous : "no"
+           }, {
+               window : win,
+               input : field_name
+           });
+           return false;
+    }
+<?php
+} else {
+?>
+	tinyMCE.init({
+		relative_urls : false,
+        remove_script_host : true,
+        document_base_url : "<?php echo $CFG->wwwroot; ?>",
+		editor_selector : "form-textarea",
+		mode : "textareas",
+		theme : "advanced",
+		convert_newlines_to_brs : false,
+		plugins : "safari,spellchecker,style,layer,table,advhr,advimage,advlink,emoticons,inlinepopups,preview,media,searchreplace,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,dragmath",
+		
+  		theme_advanced_buttons1_add : "fontselect,fontsizeselect,forecolor,backcolor,dragmath",
+		
+		theme_advanced_buttons2_add_before: "cut,copy,paste,pastetext,pasteword,separator,replace,separator,ltr,rtl,separator",
+		theme_advanced_buttons2_add: "fullscreen",
+		theme_advanced_buttons3_add_before : "tablecontrols,separator",
+		theme_advanced_buttons3_add : "emoticons,spellchecker,media,advhr",
+		spellchecker_languages : "+English=en_GB,English with accents=en_GB-w_accents,English ise with accents=en_GB-ise-w_accents",
+		theme_advanced_disable : "help,underline",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		moodleimage_course_id: <?php echo $COURSE->id; ?>,
+  		theme_advanced_fonts: "
+  		Trebuchet=Trebuchet MS,Verdana,Arial,Helvetica,sans-serif;
+  		Arial=arial,helvetica,sans-serif;
+  		Courier New=courier new,courier,monospace;
+  		Georgia=georgia,times new roman,times,serif;
+  		Tahoma=tahoma,arial,helvetica,sans-serif;
+  		Times New Roman=times new roman,times,serif;Verdana=verdana,arial,helvetica,sans-serif;
+  		Impact=impact;Wingdings=wingdings
+  		", 
+		theme_advanced_resize_horizontal : true,
+		theme_advanced_resizing : true,
+		apply_source_formatting : true,
+		
+	});
+
+<?php
+}
+?>
+</script>
+
+</body>
+</html>

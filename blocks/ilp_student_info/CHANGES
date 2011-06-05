@@ -1,0 +1,261 @@
+2009-08-07 Friday 15:46  ulcc
+
+	* block_ilp_student_info_lib.php, block_ilp_student_info_lib.php: 
+	
+	Shouldn't call config.php in lib file
+
+2009-05-26 Tuesday 00:06  ulcc
+
+	* list.php: 
+	
+	CONTRIB-865 - group changes broke in 1.8
+
+2009-05-04 Monday 01:08  ulcc
+
+	* block_ilp_student_info.php, block_ilp_student_info.php: 
+	
+	CONTRIB-1157 - fixed configuration settings for set_config to match
+	new menu format
+
+2009-04-18 Saturday 00:05  ulcc
+
+	* list.php, list.php: 
+	
+	CONTRIB-1179
+
+2009-04-17 Friday 06:04  ulcc
+
+	* db/access.php, lang/en_utf8/block_ilp_student_info.php: 
+	
+	CONTRIB-1157 - merge changes from HEAD
+
+2009-04-17 Friday 05:49  ulcc
+
+	* config_global.html, view.php: 
+	
+	CONTRIB-1157 - merge changes from HEAD
+
+2009-04-17 Friday 02:49  ulcc
+
+	* config_global.html: 
+	
+	CONTRIB-1159
+
+2009-04-17 Friday 02:30  ulcc
+
+	* template.php, view.php, templates/custom/readme.txt: 
+	
+	CONTRIB-1157
+
+2009-04-16 Thursday 23:11  ulcc
+
+	* template.php, view.php, templates/custom/readme.txt: 
+	
+	CONTRIB-1157
+
+2009-04-16 Thursday 23:11  ulcc
+
+	* template.php: 
+	
+	file template.php was initially added on branch MOODLE_19_STABLE.
+
+2009-04-16 Thursday 23:11  ulcc
+
+	* templates/custom/readme.txt: 
+	
+	file readme.txt was initially added on branch MOODLE_19_STABLE.
+
+2009-03-14 Saturday 02:43  ulcc
+
+	* access_context.php, block_ilp_student_info.php,
+	block_ilp_student_info_lib.php, config_global.html, edit_text.php,
+	list.php, view.php, db/access.php, db/install.xml, db/upgrade.php,
+	lang/en_utf8/block_ilp_student_info.php,
+	lang/es_utf8/block_ilp_student_info.php: 
+	
+	no message
+
+2009-03-14 Saturday 02:15  ulcc
+
+	* db/access.php, lang/en_utf8/block_ilp_student_info.php: 
+	
+	no message
+
+2009-03-09 Monday 04:30  arborrow
+
+	* CHANGES: 
+	
+	file CHANGES was initially added on branch MOODLE_19_STABLE.
+
+2009-03-09 Monday 04:30  arborrow
+
+	* lang/en_utf8/block_ilp_student_info.php,
+	lang/es_utf8/block_ilp_student_info.php, access_context.php,
+	block_ilp_student_info.php, config_global.html, edit_text.php,
+	list.php, CHANGES, block_ilp_student_info_lib.php, view.php,
+	db/access.php, db/install.xml, db/upgrade.php: 
+	
+	CONTRIB-1088 - creating ilp_package MOODLE_19_STABLE branch
+
+2009-01-06 Tuesday 21:37  arborrow
+
+	* view.php: 
+	
+	file view.php was added on branch MOODLE_19_STABLE on 2009-03-08
+	19:30:55 +0000
+
+2009-01-06 Tuesday 21:37  arborrow
+
+	* list.php: 
+	
+	file list.php was added on branch MOODLE_19_STABLE on 2009-03-08
+	19:30:54 +0000
+
+2009-01-06 Tuesday 21:37  ulcc
+
+	* list.php, view.php: 
+	
+	CONTRIB-865
+
+2008-11-03 Monday 23:03  ulcc
+
+	* list.php: 
+	
+	no message
+
+2008-10-16 Thursday 20:50  arborrow
+
+	* config_global.html: 
+	
+	file config_global.html was added on branch MOODLE_19_STABLE on
+	2009-03-08 19:30:54 +0000
+
+2008-10-16 Thursday 20:50  ulcc
+
+	* config_global.html, view.php: 
+	
+	CONTRIB-771
+
+2008-10-16 Thursday 20:42  ulcc
+
+	* view.php: 
+	
+	CONTRIB-771
+
+2008-10-13 Monday 20:42  arborrow
+
+	* edit_text.php: 
+	
+	file edit_text.php was added on branch MOODLE_19_STABLE on
+	2009-03-08 19:30:54 +0000
+
+2008-10-13 Monday 20:42  arborrow
+
+	* access_context.php: 
+	
+	file access_context.php was added on branch MOODLE_19_STABLE on
+	2009-03-08 19:30:54 +0000
+
+2008-10-13 Monday 20:42  ulcc
+
+	* access_context.php, edit_text.php, list.php, view.php: 
+	
+	CONTRIB-771
+
+2008-08-19 Tuesday 19:22  arborrow
+
+	* lang/es_utf8/block_ilp_student_info.php: 
+	
+	file block_ilp_student_info.php was added on branch
+	MOODLE_19_STABLE on 2009-03-08 19:30:51 +0000
+
+2008-08-19 Tuesday 19:22  ulcc
+
+	* lang/es_utf8/block_ilp_student_info.php: 
+	
+	CONTRIB-666
+
+2008-05-29 Thursday 19:00  arborrow
+
+	* db/upgrade.php: 
+	
+	file upgrade.php was added on branch MOODLE_19_STABLE on 2009-03-08
+	19:30:55 +0000
+
+2008-05-29 Thursday 19:00  arborrow
+
+	* db/install.xml: 
+	
+	file install.xml was added on branch MOODLE_19_STABLE on 2009-03-08
+	19:30:55 +0000
+
+2008-05-29 Thursday 19:00  arborrow
+
+	* block_ilp_student_info.php: 
+	
+	file block_ilp_student_info.php was added on branch
+	MOODLE_19_STABLE on 2009-03-08 19:30:54 +0000
+
+2008-05-29 Thursday 19:00  arborrow
+
+	* block_ilp_student_info_lib.php: 
+	
+	file block_ilp_student_info_lib.php was added on branch
+	MOODLE_19_STABLE on 2009-03-08 19:30:55 +0000
+
+2008-05-29 Thursday 19:00  ulcc
+
+	* block_ilp_student_info.php, block_ilp_student_info_lib.php,
+	edit_text.php, db/install.xml, db/upgrade.php: 
+	
+	CONTRIB-377
+
+2008-05-28 Wednesday 17:37  ulcc
+
+	* block_ilp_student_info.php, block_ilp_student_info_lib.php,
+	config_global.html, edit_text.php: 
+	
+	CONTRIB-376
+
+2008-05-22 Thursday 20:27  ulcc
+
+	* db/install.xml: 
+	
+	CONTRIB-376
+
+2008-05-22 Thursday 20:00  ulcc
+
+	* list.php: 
+	
+	CONTRIB-451
+
+2008-05-21 Wednesday 19:40  ulcc
+
+	* list.php: 
+	
+	CONTRIB-447
+
+2008-04-08 Tuesday 07:20  arborrow
+
+	* db/access.php: 
+	
+	file access.php was added on branch MOODLE_19_STABLE on 2009-03-08
+	19:30:55 +0000
+
+2008-04-08 Tuesday 07:20  arborrow
+
+	* lang/en_utf8/block_ilp_student_info.php, access_context.php,
+	block_ilp_student_info.php, block_ilp_student_info_lib.php,
+	config_global.html, edit_text.php, list.php, view.php,
+	db/access.php, db/install.xml: 
+	
+	CONTRIB-262 - adding ILP blocks and modules submitted by James
+	Ballard
+
+2008-04-08 Tuesday 07:20  arborrow
+
+	* lang/en_utf8/block_ilp_student_info.php: 
+	
+	file block_ilp_student_info.php was added on branch
+	MOODLE_19_STABLE on 2009-03-08 19:30:44 +0000
+

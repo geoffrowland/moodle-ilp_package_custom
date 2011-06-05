@@ -1,0 +1,106 @@
+/*
+* @copyright &copy; 2007 University of London Computer Centre
+* @author http://www.ulcc.ac.uk, http://moodle.ulcc.ac.uk
+* @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+* @package ILP
+*/
+
+/* General page setting */
+#blocks-ilp-view div#content {padding-left: 10px; padding-right: 10px;}
+#blocks-ilp-view table td{margin:3px; padding:5px; }
+#blocks-ilp-view table.generalbox { width:99%; }
+#blocks-ilp-view div.generalbox {margin:3px; padding:5px;}
+#blocks-ilp-view div.generalbox h2 {margin:0; padding:0}
+
+/* Add new post button */
+.addbox {
+	float:left;
+    position:relative;
+	left:50%;
+}
+
+.ilpadd {
+	float:right;
+}
+
+.addbox a.button, .ilpadd a.button {
+    background: transparent url('ilp/addbox_a.gif') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+}
+
+.addbox a.button {
+	position:relative;
+	left:-50%;
+}
+
+.addbox a.button span, .ilpadd a.button span {
+    background: transparent url('ilp/addbox_span.gif') no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 24px;
+}
+
+.addbox a.button:active, .addbox a.button:hover,
+.ilpadd a.button:active, .ilpadd a.button:hover  {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+.addbox a.button:active span, .addbox a.button:hover span,
+.ilpadd a.button:active span, .ilpadd a.button:hover span {
+    background-position: bottom left;
+    padding: 6px 0 4px 24px; /* push text down 1px */
+} 
+
+/* Comments box */
+.ilpcenter { text-align:center; }
+.ilpcomment { width:85%; text-align:left; font-size:0.8em; margin-top:3px; margin-bottom:3px; padding:3px; }
+.ilpcomment .commands { font-size: 0.9em; padding-top: 0.5em; text-align:right; clear: both; }
+
+/* Student Status Colours */
+h1.status-0, h2.status-0, h3.status-0, span.status-0 { color: #00984b; }
+h1.status-1, h2.status-1, h3.status-1, span.status-1 { color: #ff7e00; }
+h1.status-2, h2.status-2, h3.status-2, span.status-2 { color: #ff0000; }
+span.status-0, span.status-1, span.status-2 { font-weight:bold; }
+
+/* Use full-size profile image */
+#blocks-ilp-view .userpicture { width: 100px; height: 100px; }
+
+/* YUI Grid http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css */
+
+ilp_post,.yui-t4 {margin:auto;text-align:left;width:99%;*width:99%;}
+.ilp_post { margin:3px; }
+.yui-t4 {border: 1px solid #ccc; padding:3px; }
+.yui-b{position:relative;}
+.yui-b{_position:static;}
+.yui-main .yui-b{position:static;}
+.yui-main{width:100%;}
+.yui-t4 .yui-main {float:left;margin-right:-25em;}
+.yui-t4 .yui-b{float:right;width:15.8456em;*width:15.50em;}
+.yui-t4 .yui-main .yui-b{margin-right:16.8456em;*margin-right:16.55em;}
+.yui-main .yui-b{float:none;width:auto;}
+.yui-gd .yui-u{float:left;}
+.yui-gd div.first{float:left;}
+.yui-gd .yui-u{width:16%;margin-left:1.99%; }
+.yui-gd .yui-u{width:80%;border-right:1px dashed #ccc;border-left:1px dashed #ccc; padding-left:2px;}
+.yui-gd div.first{width:15%;border:none;}
+.yui-gd div.first{margin-left:0;}
+
+.yui-t4 .yui-b img.achieved {position: absolute; bottom:0; right:0}
+.yui-t4 .yui-b ul {margin: 5px 0 5px 0; padding-left: 0; border: none;}
+.yui-t4 .yui-b ul li { margin-left: 0; padding-left: 2px; border: none; list-style: none;}
+.yui-t4 .yui-b ul li:before { content: "\0020 \0020 \0020 \00BB \0020"; }
+.yui-t4 .yui-b .commands { font-size: 0.8em; padding-top: 0em; clear: both; }
+.yui-t4 .yui-b form {display:inline;}
+.yui-t4 .yui-b form select, .yui-t4 .yui-b form input {font-size:0.8em;}
+
+.bd:after,.yui-gd:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.bd,.yui-gd{zoom:1;} 

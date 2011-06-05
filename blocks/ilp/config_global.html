@@ -1,0 +1,137 @@
+<div style="text-align: center;">
+
+<?php $categories = get_categories();
+
+      $cat_no = count($categories);
+
+    $module = 'project/ilp';
+    $config = get_config($module);
+
+        if (!isset($config->ilp_show_student_info))
+            { $config->ilp_show_student_info = 0; }
+        if (!isset($config->ilp_show_personal_reports))
+            { $config->ilp_show_personal_reports = 0; }
+        if (!isset($config->ilp_show_subject_reports))
+            { $config->ilp_show_subject_reports = 0; }
+        if (!isset($config->ilp_show_targets))
+            { $config->ilp_show_targets = 0; }
+        if (!isset($config->ilp_show_concerns))
+            { $config->ilp_show_concerns = 0; }
+        if (!isset($config->ilp_show_achieved_targets))
+            { $config->ilp_show_achieved_targets = 0; }
+        if (!isset($config->ilp_limit_categories))
+            { $config->ilp_limit_categories = 0; }
+        if (empty($config->ilp_categories))
+            { $config->ilp_categories = ''; }
+        if (!isset($config->ilp_user_guide_link))
+            { $config->ilp_user_guide_link = 0; }
+        
+?>
+
+<table cellpadding="9" cellspacing="0" style="text-align:left" >
+<tr valign="top">
+    <td align="right">ilp_user_guide_link:</td>
+    <td colspan="2">
+    <?php print_textfield('ilp_user_guide_link', $config->ilp_user_guide_link, $alt = '',$size=50,$maxlength=0, $return=false); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">ilp_show_student_info:</td>
+    <td>
+    <?php choose_from_menu_yesno ("ilp_show_student_info", $config->ilp_show_student_info, "", "", ""); ?>
+    </td>
+    <td>
+    <?php print_string("config_ilp_show_student_info", "block_ilp") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">ilp_show_personal_reports:</td>
+    <td>
+    <?php choose_from_menu_yesno ("ilp_show_personal_reports", $config->ilp_show_personal_reports, "", "", ""); ?>
+    </td>
+    <td>
+    <?php print_string("config_ilp_show_personal_reports", "block_ilp") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">ilp_show_subject_reports:</td>
+    <td>
+    <?php choose_from_menu_yesno ("ilp_show_subject_reports", $config->ilp_show_subject_reports, "", "", ""); ?>
+    </td>
+    <td>
+    <?php print_string("config_ilp_show_subject_reports", "block_ilp") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">ilp_show_targets:</td>
+    <td>
+    <?php choose_from_menu_yesno ("ilp_show_targets", $config->ilp_show_targets, "", "", ""); ?>
+    </td>
+    <td>
+    <?php print_string("config_ilp_show_targets", "block_ilp") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">ilp_show_concerns:</td>
+    <td>
+    <?php choose_from_menu_yesno ("ilp_show_concerns", $config->ilp_show_concerns, "", "", ""); ?>
+    </td>
+    <td>
+    <?php print_string("config_ilp_show_concerns", "block_ilp") ?></p>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" align="center"><hr /></td>
+</tr>
+<tr valign="top">
+    <td align="right">ilp_show_achieved_targets:</td>
+    <td>
+    <?php choose_from_menu_yesno ("ilp_show_achieved_targets", $config->ilp_show_achieved_targets, "", "", ""); ?>
+    </td>
+    <td>
+    <?php print_string("config_ilp_show_achieved_targets", "block_ilp") ?>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" align="center"><hr /></td>
+</tr>   
+<tr valign="top">
+    <td align="right">ilp_limit_categories:</td>
+    <td>
+    <?php choose_from_menu_yesno ("ilp_limit_categories", $config->ilp_limit_categories, "", "", ""); ?>
+    </td>
+    <td>
+    <?php print_string("config_ilp_limit_categories", "block_ilp") ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">ilp_categories:</td>
+    <td colspan="2">
+    <?php print_textfield('ilp_categories', $config->ilp_categories, $alt = '',$size=50,$maxlength=0, $return=false); ?>
+    </td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td colspan="2">
+    <?php print_string("config_ilp_categories", "block_ilp") ?>
+    </td>
+</tr>
+<tr><th>&nbsp;</th><th>ID</th><th>Category Name</th></tr>
+<?php foreach ($categories as $category){
+        echo '<tr><td>&nbsp;</td><td>'.$category->id.'</td><td colspan="2">'.$category->name.'</td></tr>';
+        }
+?>  
+<tr>
+    <td colspan="3" align="center">
+    <input type="submit" value="<?php print_string("savechanges") ?>" /></td>
+</tr>
+</table>
+
+<?php if (1 or $usehtmleditor) {
+
+          use_html_editor(); 
+
+      }
+
+?>
+

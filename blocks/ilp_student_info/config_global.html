@@ -1,0 +1,248 @@
+<?php $usehtmleditor = can_use_html_editor(); 
+
+    $module = 'project/ilp';
+    $config = get_config($module);
+        
+    if ( !isset($config->block_ilp_student_info_allow_per_student_teacher_text))
+        { $config->block_ilp_student_info_allow_per_student_teacher_text = 0; }
+    if ( empty($config->block_ilp_student_info_default_per_student_teacher_text))
+        { $config->block_ilp_student_info_default_per_student_teacher_text = ''; }
+        
+    if ( !isset($config->block_ilp_student_info_allow_per_student_student_text))
+        { $config->block_ilp_student_info_allow_per_student_student_text = 0; }
+    if ( empty($config->block_ilp_student_info_default_per_student_student_text))
+        { $config->block_ilp_student_info_default_per_student_student_text = ''; }
+        
+    if ( !isset($config->block_ilp_student_info_allow_per_student_shared_text))
+        { $config->block_ilp_student_info_allow_per_student_shared_text = 0; }
+    if ( empty($config->block_ilp_student_info_default_per_student_shared_text))
+        { $config->block_ilp_student_info_default_per_student_shared_text = ''; }
+        
+    if ( !isset($config->block_ilp_student_info_allow_per_tutor_teacher_text))
+        { $config->block_ilp_student_info_allow_per_tutor_teacher_text = 0; }
+    if ( empty($config->block_ilp_student_info_default_per_tutor_teacher_text))
+        { $config->block_ilp_student_info_default_per_tutor_teacher_text = ''; }
+        
+    if ( !isset($config->block_ilp_student_info_allow_per_tutor_student_text))
+        { $config->block_ilp_student_info_allow_per_tutor_student_text = 0; }
+    if ( empty($config->block_ilp_student_info_default_per_tutor_student_text))
+        { $config->block_ilp_student_info_default_per_tutor_student_text = ''; }
+        
+    if (!isset($config->block_ilp_student_info_allow_per_tutor_shared_text))
+        { $config->block_ilp_student_info_allow_per_tutor_shared_text = 0; }
+    if (empty($config->block_ilp_student_info_default_per_tutor_shared_text))
+        { $config->block_ilp_student_info_default_per_tutor_shared_text = ''; }
+            
+    if (!isset($config->block_ilp_student_info_allow_per_teacher_teacher_text))
+        { $config->block_ilp_student_info_allow_per_teacher_teacher_text = 0; } 
+    if (empty($config->block_ilp_student_info_default_per_teacher_teacher_text))
+        { $config->block_ilp_student_info_default_per_teacher_teacher_text = ''; }
+    
+    if (!isset($config->block_ilp_student_info_allow_per_teacher_student_text))
+        { $config->block_ilp_student_info_allow_per_teacher_student_text = 0; }
+    if (empty($config->block_ilp_student_info_default_per_teacher_student_text))
+        { $config->block_ilp_student_info_default_per_teacher_student_text = ''; }
+        
+    if (!isset($config->block_ilp_student_info_allow_per_teacher_shared_text))
+        { $config->block_ilp_student_info_allow_per_teacher_shared_text = 0; }
+    if (empty($config->block_ilp_student_info_default_per_teacher_shared_text))
+        { $config->block_ilp_student_info_default_per_teacher_shared_text = ''; }
+
+
+?>
+
+<table cellpadding="9" cellspacing="0" >
+<tr valign="top">
+<th colspan="3" style="text-align:left"><?php print_string('ilp_student_info', 'block_ilp_student_info'); ?></th>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_student_teacher_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_student_teacher_text", $config->block_ilp_student_info_allow_per_student_teacher_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_student_teacher_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_student_teacher_text:<br /><?php print_string('default_per_student_teacher_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_student_teacher_text',stripslashes($config->block_ilp_student_info_default_per_student_teacher_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_student_student_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_student_student_text", $config->block_ilp_student_info_allow_per_student_student_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_student_student_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_student_student_text:<br /><?php print_string('default_per_student_student_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_student_student_text',stripslashes($config->block_ilp_student_info_default_per_student_student_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_student_shared_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_student_shared_text", $config->block_ilp_student_info_allow_per_student_shared_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_student_shared_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_student_shared_text:<br /><?php print_string('default_per_student_shared_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_student_shared_text',stripslashes($config->block_ilp_student_info_default_per_student_shared_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+<th colspan="3" style="text-align:left"><?php print_string('personal_report', 'block_ilp'); ?></th>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_tutor_teacher_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_tutor_teacher_text", $config->block_ilp_student_info_allow_per_tutor_teacher_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_tutor_teacher_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_tutor_teacher_text:<br /><?php print_string('default_per_tutor_teacher_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_tutor_teacher_text',stripslashes($config->block_ilp_student_info_default_per_tutor_teacher_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_tutor_student_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_tutor_student_text", $config->block_ilp_student_info_allow_per_tutor_student_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_tutor_student_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_tutor_student_text:<br /><?php print_string('default_per_tutor_student_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_tutor_student_text',stripslashes($config->block_ilp_student_info_default_per_tutor_student_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_tutor_shared_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_tutor_shared_text", $config->block_ilp_student_info_allow_per_tutor_shared_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_tutor_shared_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_tutor_shared_text:<br /><?php print_string('default_per_tutor_shared_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_tutor_shared_text',stripslashes($config->block_ilp_student_info_default_per_tutor_shared_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+<th colspan="3" style="text-align:left"><?php print_string('subject_report', 'block_ilp'); ?></th>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_teacher_teacher_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_teacher_teacher_text", $config->block_ilp_student_info_allow_per_teacher_teacher_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_teacher_teacher_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_teacher_teacher_text:<br /><?php print_string('default_per_teacher_teacher_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_teacher_teacher_text',stripslashes($config->block_ilp_student_info_default_per_teacher_teacher_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_teacher_student_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_teacher_student_text", $config->block_ilp_student_info_allow_per_teacher_student_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_teacher_student_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_teacher_student_text:<br /><?php print_string('default_per_teacher_student_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_teacher_student_text',stripslashes($config->block_ilp_student_info_default_per_teacher_student_text));
+    ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">allow_per_teacher_shared_text:</td>
+    <td>
+    <?php
+       choose_from_menu_yesno ("block_ilp_student_info_allow_per_teacher_shared_text", $config->block_ilp_student_info_allow_per_teacher_shared_text, "", "", "");
+    ?>
+    </td>
+    <td>
+    <?php print_string('allow_per_teacher_shared_text', 'block_ilp_student_info'); ?>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="right">default_per_teacher_shared_text:<br /><?php print_string('default_per_teacher_shared_text', 'block_ilp_student_info'); ?></td>
+    <td colspan="2">
+    <?php
+       print_textarea(true, 20, 50, 0, 0,'block_ilp_student_info_default_per_teacher_shared_text',stripslashes($config->block_ilp_student_info_default_per_teacher_shared_text));
+    ?>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" align="center">
+    <input type="submit" value="<?php print_string("savechanges") ?>" /></td>
+</tr>
+</table>
+
+<?php if ($usehtmleditor) {
+
+          use_html_editor(); 
+
+      }
+
+?>
+

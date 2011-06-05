@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<XMLDB PATH="blocks/ilp_student_info/db" VERSION="20070815" COMMENT="XMLDB file for Moodle ilp_student_info block"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+
+>
+
+
+
+
+
+
+
+
+
+  <TABLES>
+
+
+
+    <TABLE NAME="ilp_student_info_per_student" NEXT="ilp_student_info_per_teacher" COMMENT="Student info block per student. links to user - student. and to course. though courseid will always be 1 for the moment.  optionally links thrice to block_ilp_student_info_text. on deletion of student this should be deleted along with any relevant Block_ilp_student_info_text.">
+
+      <FIELDS>
+
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="student_userid"/>
+
+        <FIELD NAME="student_userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="teacher_textid"/>
+
+        <FIELD NAME="teacher_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="student_userid" NEXT="shared_textid"/>
+
+        <FIELD NAME="shared_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="teacher_textid" NEXT="student_textid"/>
+
+        <FIELD NAME="student_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="shared_textid" NEXT="courseid"/>
+
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="student_textid"/>
+
+      </FIELDS>
+
+      <KEYS>
+
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for block_ilp_student_info_per_student"/>
+
+      </KEYS>
+
+    </TABLE>
+
+
+
+    <TABLE NAME="ilp_student_info_per_teacher" NEXT="ilp_student_info_per_tutor" PREVIOUS="ilp_student_info_per_student" COMMENT="Student info block per teacher. links to user twice - student and teacher.  links to course.   optionally links thrice to block_ilp_student_info_text. on deletion of student or teacher this should be deleted along with any relevant block_ilp_student_info_text.">
+
+      <FIELDS>
+
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="student_userid"/>
+
+        <FIELD NAME="student_userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="teacher_userid"/>
+
+        <FIELD NAME="teacher_userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="student_userid" NEXT="teacher_textid"/>
+
+        <FIELD NAME="teacher_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="teacher_userid" NEXT="shared_textid"/>
+
+        <FIELD NAME="shared_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="teacher_textid" NEXT="student_textid"/>
+
+        <FIELD NAME="student_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="shared_textid" NEXT="courseid"/>
+
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="student_textid"/>
+
+      </FIELDS>
+
+      <KEYS>
+
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for block_ilp_student_info_per_teacher"/>
+
+      </KEYS>
+
+    </TABLE>
+
+
+
+    <TABLE NAME="ilp_student_info_per_tutor" NEXT="ilp_student_info_text" PREVIOUS="ilp_student_info_per_teacher" COMMENT="Student info block per personal tutor info. links to user twice - student and personal tutor.  optionally links thrice to block_ilp_student_info_text. on deletion of student or tutor this should be deleted along with any relevant block_ilp_student_info_text.">
+
+      <FIELDS>
+
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="student_userid"/>
+
+        <FIELD NAME="student_userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="teacher_userid"/>
+
+        <FIELD NAME="teacher_userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="student_userid" NEXT="teacher_textid"/>
+
+        <FIELD NAME="teacher_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="teacher_userid" NEXT="shared_textid"/>
+
+        <FIELD NAME="shared_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="teacher_textid" NEXT="student_textid"/>
+
+        <FIELD NAME="student_textid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="shared_textid"/>
+
+      </FIELDS>
+
+      <KEYS>
+
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for block_ilp_student_info_per_tutor"/>
+
+      </KEYS>
+
+    </TABLE>
+
+
+
+    <TABLE NAME="ilp_student_info_text" PREVIOUS="ilp_student_info_per_tutor" COMMENT="Student info block text. links to nothing except last user to edit. used to consolodate text behaviour and remove it from page specific data and functions.  a text is an HTML fragement with last changed info.">
+
+      <FIELDS>
+
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="text"/>
+
+        <FIELD NAME="text" TYPE="text" LENGTH="medium" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="lastchanged_datetime"/>
+
+        <FIELD NAME="lastchanged_datetime" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="text" NEXT="lastchanged_userid"/>
+
+        <FIELD NAME="lastchanged_userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="lastchanged_datetime"/>
+
+      </FIELDS>
+
+      <KEYS>
+
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for block_ilp_student_info_text"/>
+
+      </KEYS>
+
+    </TABLE>
+
+  </TABLES>
+
+</XMLDB>
+
